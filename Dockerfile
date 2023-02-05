@@ -4,14 +4,7 @@ FROM debian:bullseye-slim
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-    ca-certificates \
     curl \
-    gnupg \
-    gpg \
-    libfontconfig1 \
-    libfreetype6 \
-    ssh-client \
-    tini \
     unzip \
   && rm -rf /var/lib/apt/lists/*
 
