@@ -1,7 +1,7 @@
 node ('pi1_agent') {
     stage('Checkout repo') {
-        // checkout code from a GitHub repository
-        checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/develop']], extensions: [], userRemoteConfigs: [[credentialsId: 'pi1', url: 'git@github.com:TheLastBlackArrow/openJDK11_Zulu.git']])
+        // Get some code from a GitHub repository
+        git branch: "$GIT_BRANCH", changelog: false, credentialsId: 'pi1', poll: false, url: "$GIT_URL"
     }
     stage('Build') {
         // Run the docker build
