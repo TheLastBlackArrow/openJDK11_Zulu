@@ -1,6 +1,6 @@
 # No docker image support java 11 on arm32v6 therefore I want to use Zulu
 # always using latest cause pi1 will be supported by raspberian
-FROM debian:bullseye-slim
+FROM debian:bullseye-slim as jre-build
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -13,7 +13,7 @@ ENV LANG C.UTF-8
 # download openjdk from Zulu website
 COPY ./install-java.sh ./install-java.sh
 RUN chmod +x ./install-java.sh && ./install-java.sh
-ENV JAVA_JDK_HOME=/opt/java/openjdk11
+ENV JAVA_JDK_HOME=/opt/java/openjdk
 
 # Create a custom Java runtime
 ENV JAVA_HOME=/opt/java/openjdk
