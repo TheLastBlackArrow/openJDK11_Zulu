@@ -33,6 +33,6 @@ RUN $JAVA_JDK_HOME/bin/jlink \
          --compress=2 \
          --output /javaruntime
 
-COPY ./javaruntime/ ${JAVA_HOME}/
+# COPY ./javaruntime/ ${JAVA_HOME}/
 
 RUN java -version
